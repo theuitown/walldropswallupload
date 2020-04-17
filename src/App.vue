@@ -27,19 +27,18 @@ import { db } from './firebase';
 export default {
   data() {
     return {
-      Background: [],
       category:[],
       url:"https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png"
     }
   },
   firebase: {
-    Background:db.ref('Backgrounds'),
     category:db.ref('CategoryBackground'),
   },
   methods:{
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
+      this.imageLink=e.target.files[0].name;
     },
     uploadwallp(){
       db.ref('Backgrounds').push({
