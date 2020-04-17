@@ -1,8 +1,10 @@
 import Vue from "vue";
-import App from "./App.vue";
+import { rtdbPlugin } from "vuefire";
+import App from './App.vue';
 
-Vue.config.productionTip = false;
+Vue.use(rtdbPlugin);
 
 new Vue({
+  el: '#app',
   render: h => h(App)
-}).$mount("#app");
+});
