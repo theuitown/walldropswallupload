@@ -17,6 +17,7 @@
           </select>
           <button style="margin-top:2rem;" type="submit" class="main-btn">Submit Wallpaper</button>
         </form>
+        <p>Timestamp: {{ timestampp }}</p>
       </right>
   </div>
 </template>
@@ -28,7 +29,9 @@ export default {
   data() {
     return {
       category:[],
-      url:"https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png"
+      Background:[],
+      url:"https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png",
+      timestampp:-1294
     }
   },
   firebase: {
@@ -40,14 +43,17 @@ export default {
       this.url = URL.createObjectURL(file);
       this.imageLink=e.target.files[0].name;
     },
-    uploadwallp(){
+    uploadwallp(f){
+      f.preventDefault();
       db.ref('Backgrounds').push({
         imageLink:"https://raw.githubusercontent.com/theuitown/Walldropsdatabase/master/wall2/"+this.imageLink,
-        categoryId:this.value
+        categoryId:this.value,
+        timestamp: this.timestampp
       })
+      this.timestampp--;
+      alert("Ho gya upload :) Pero Boi");
     }
   }
-
 }
 </script>
 <style>
