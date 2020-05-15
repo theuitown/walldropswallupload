@@ -47,7 +47,7 @@ export default {
       f.preventDefault();
       db.ref('Backgrounds').push({
         imageLink:"https://raw.githubusercontent.com/theuitown/Walldropsdatabase/master/wall2/"+this.imageLink,
-        categoryId:this.value,
+        categoryId:(this.value).toString(),
         timestamp: this.timestampp
       })
       this.timestampp--;
