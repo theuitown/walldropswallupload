@@ -46,11 +46,9 @@ export default {
     uploadwallp(f){
       f.preventDefault();
       db.ref('Backgrounds').push({
-        imageLink:"https://raw.githubusercontent.com/theuitown/Walldropsdatabase/master/wall2/"+this.imageLink,
-        categoryId:(this.value).toString(),
-        timestamp: this.timestampp
+        imageLink:"https://raw.githubusercontent.com/iamharshdev/Walldropsdatabase/master/wall2/"+this.imageLink,
+        categoryId:(this.value).toString()
       })
-      this.timestampp--;
       alert("Ho gya upload :) Pero Boi");
     }
   }
